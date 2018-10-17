@@ -25,7 +25,8 @@
 #define KC_STR LGUI(LSFT(KC_RBRC))      // Switch tab right
 #define KC_SSL LCTL(KC_LEFT)            // Switch screen left
 #define KC_SSR LCTL(KC_RIGHT)           // Switch screen right
-#define KC_SU LCTL(KC_UP)		// Show all screens
+#define KC_SU LCTL(KC_UP)		            // Show all screens
+#define KC_SD LCTL(KC_DOWN)		          // Collapse screens
 #define KC_PB LGUI(KC_LBRC)             // Page back
 #define KC_PF LGUI(KC_RBRC)             // Page forward
 #define KC_SF LGUI(KC_GRV)              // Switch browser focus
@@ -128,9 +129,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = {
-  {KC_TILD, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_EQL},
-  {KC_SPLT, KC_CAPP, KC_LEFT, KC_SSL,  KC_SSR,  KC_LBRC, KC_RBRC, KC_4,    KC_5,    KC_6,    KC_PLUS, KC_PIPE},
-  {_______, KC_CPYP,  KC_SU,  KC_PB , KC_PF,  KC_LCBR,  KC_RCBR,  KC_1,    KC_2,    KC_3,    KC_MINS,   _______},
+  {KC_TILD, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9, KC_0, KC_EQL},
+  {KC_SPLT, KC_CAPP, KC_LEFT, KC_SSL,  KC_SSR,  KC_LBRC, KC_RBRC, KC_4,    KC_5,    KC_6, KC_PLUS, KC_PIPE},
+  {_______, KC_PB,   KC_PF,   KC_SU , KC_SD,  KC_LCBR,  KC_RCBR,  KC_1,    KC_2,    KC_3, KC_MINS, _______},
   {KC_DEVT, _______, _______, _______, _______, _______, KC_DEL, _______, KC_0,  KC_DOT, _______, _______}
 },
 
