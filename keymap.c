@@ -30,9 +30,9 @@
 #define KC_PB LGUI(KC_LBRC)             // Page back
 #define KC_PF LGUI(KC_RBRC)             // Page forward
 #define KC_SF LGUI(KC_GRV)              // Switch browser focus
-#define KC_X0 MT(MOD_LCTL, KC_ESC)
-#define KC_SPLT LGUI(KC_SPC)
-#define KC_DEVT LGUI(LALT(KC_J))         // Toggle Dev Tools
+#define KC_X0 MT(MOD_LCTL, KC_ESC)      // Toggle CTRL/Esc
+#define KC_SPLT LGUI(KC_SPC)            // Alt spotlight/alfred
+#define KC_DEVT LGUI(LALT(KC_J))        // Toggle Dev Tools
 // #define KC_X1 LOWER
 // #define KC_X2 RAISE
 // #define KC_X3 LT(_FN3, KC_GRV)
@@ -87,10 +87,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = {
-  {KC_TILD, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9, KC_0, KC_EQL},
-  {KC_SPLT, KC_CAPP, KC_LEFT, KC_SSL,  KC_SSR,  KC_LBRC, KC_RBRC, KC_4,    KC_5,    KC_6, KC_PLUS, KC_PIPE},
-  {_______, KC_PB,   KC_PF,   KC_SU , KC_SD,  KC_LCBR,  KC_RCBR,  KC_1,    KC_2,    KC_3, KC_MINS, _______},
-  {KC_DEVT, _______, _______, _______, _______, _______, KC_DEL, _______, KC_0,  KC_DOT, _______, _______}
+  {KC_TILD,  KC_1  ,  KC_2  ,  KC_3 ,  KC_4  ,   KC_5  ,  KC_6   ,  KC_7  ,   KC_8,  KC_9  , KC_0   , KC_EQL  },
+  {KC_SPLT, KC_CAPP, KC_LEFT, KC_SSL,  KC_SSR,  KC_LBRC, KC_RBRC ,  KC_4  ,   KC_5,  KC_6  , KC_PLUS, KC_PIPE },
+  {_______, KC_PB,   KC_PF,   KC_SU , KC_SD  ,  KC_LCBR,  KC_RCBR,  KC_1  ,   KC_2,  KC_3  , KC_MINS, _______ },
+  {KC_DEVT, _______, _______, _______, _______, _______, KC_DEL  , _______,   KC_0,  KC_DOT, _______, _______ }
 },
 
 /* Raise
@@ -106,10 +106,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_RAISE] = {
-  {_______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PLUS},
-  {KC_DEL,  KC_MPRV, KC_MNXT, KC_VOLU, KC_PGUP, KC_HOME, KC_EQL,  KC_SF,   KC_UP,  KC_STL, KC_STR, KC_BSLS},
+  {_______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN , KC_PLUS},
+  {KC_DEL,  KC_MPRV, KC_MNXT, KC_VOLU, KC_PGUP, KC_HOME, KC_EQL,  KC_SF,   KC_UP  ,  KC_STL, KC_STR  , KC_BSLS},
   {_______, KC_MSTP, KC_MPLY, KC_VOLD, KC_PGDN, KC_END,  KC_PLUS, KC_LEFT, KC_DOWN, KC_RIGHT, _______, _______},
-  {KC_DEVT, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY}
+  {KC_DEVT, _______, _______, _______, _______, _______, _______, _______, KC_MNXT, KC_VOLD , KC_VOLU, KC_MPLY}
 },
 
 [_PLOVER] = {
