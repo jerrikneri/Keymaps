@@ -19,7 +19,7 @@ enum planck_keycodes {
 #define FUNCTION MO(_FUNCTION)
 
 #define KC_CAPW LGUI(LSFT(KC_3))        // Capture whole screen
-#define KC_CPYW LGUI(LSFT(LCTL(KC_3)))  // Copy whole screen
+#define KC_RCPP LGUI(LSFT(KC_5))  // Record portion of screen
 #define KC_CAPP LGUI(LSFT(KC_4))        // Capture portion of screen
 #define KC_CPYP LGUI(LSFT(LCTL(KC_4)))  // Copy portion of screen
 
@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_LOWER] = LAYOUT_planck_grid(
     KC_TILD, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8,  KC_9  , KC_0   , KC_EQL   , \
-    KC_SPLT, KC_CAPP, KC_SHDT, KC_SSL , KC_SSR , KC_LBRC, KC_RBRC, KC_4   , KC_5,  KC_6  , KC_PLUS, KC_BSLS  , \
+    KC_SPLT, KC_CAPP, KC_RCPP, KC_SSL , KC_SSR , KC_LBRC, KC_RBRC, KC_4   , KC_5,  KC_6  , KC_PLUS, KC_BSLS  , \
     _______, KC_PB  , KC_PF  , KC_SU  , KC_SD  , KC_LCBR, KC_RCBR, KC_1   , KC_2,  KC_3  , KC_MINS, KC_RETURN, \
     KC_DEVT, _______, _______, _______, _______, _______, KC_DW  , _______, KC_0,  KC_DOT, _______, KC_PENT    \
   ),
