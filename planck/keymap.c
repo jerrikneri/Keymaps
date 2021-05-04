@@ -86,6 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+  // rev6 only start
   switch (get_highest_layer(state)) {
     case _RAISE:
         rgblight_setrgb (0x00,  0x00, 0xFF);
@@ -104,7 +105,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         break;
     }
     return state;
-  // return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    // rev6 only end
+  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST); // pre rev6 no rgb
 }
 
 
