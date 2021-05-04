@@ -11,17 +11,15 @@ enum planck_layers {
 };
 
 enum planck_keycodes {
-  QWERTY = SAFE_RANGE 
+  QWERTY = SAFE_RANGE
 };
 
 #define LOWER MO(_LOWER)
 #define RAISE MO(_RAISE)
 #define FUNCTION MO(_FUNCTION)
 
-#define KC_CAPW LGUI(LSFT(KC_3))        // Capture whole screen
-#define KC_RCPP LGUI(LSFT(KC_5))  // Record portion of screen
+#define KC_RCPP LGUI(LSFT(KC_5))        // Record portion of screen
 #define KC_CAPP LGUI(LSFT(KC_4))        // Capture portion of screen
-#define KC_CPYP LGUI(LSFT(LCTL(KC_4)))  // Copy portion of screen
 
 #define KC_STL LGUI(LSFT(KC_LBRC))      // Switch tab left
 #define KC_STR LGUI(LSFT(KC_RBRC))      // Switch tab right
@@ -53,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB  , KC_Q   , KC_W   , KC_E   , KC_R,  KC_T  , KC_Y   , KC_U , KC_I   , KC_O   , KC_P   , KC_MINS, \
     KC_X0   , KC_A   , KC_S   , KC_D   , KC_F,  KC_G  , KC_H   , KC_J , KC_K   , KC_L   , KC_SCLN, KC_QUOT, \
     KC_LSFT , KC_Z   , KC_X   , KC_C   , KC_V,  KC_B  , KC_N   , KC_M , KC_COMM, KC_DOT , KC_SLSH, KC_X4  , \
-    FUNCTION, KC_LCTL, KC_LGUI, KC_LALT, LOWER, KC_SPC, KC_BSPC, RAISE, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT  \
+    FUNCTION, KC_LCTL, KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_BSPC, RAISE, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT  \
   ),
 
   [_LOWER] = LAYOUT_planck_grid(
@@ -88,7 +86,25 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 layer_state_t layer_state_set_user(layer_state_t state) {
-  return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+  switch (get_highest_layer(state)) {
+    case _RAISE:
+        rgblight_setrgb (0x00,  0x00, 0xFF);
+        break;
+    case _LOWER:
+        rgblight_setrgb (0xFF,  0x00, 0x00);
+        break;
+    case _FUNCTION:
+        rgblight_setrgb (0x00,  0xFF, 0x00);
+        break;
+    case _ADJUST:
+        rgblight_setrgb (0x7A,  0x00, 0xFF);
+        break;
+    default: //  for any other layers, or the default layer
+        rgblight_setrgb (0x00,  0xFF, 0xFF);
+        break;
+    }
+    return state;
+  // return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
 
