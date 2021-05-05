@@ -4,6 +4,7 @@
 
 enum planck_layers {
   _QWERTY,
+  _MOUSE,
   _LOWER,
   _RAISE,
   _FUNCTION,
@@ -11,7 +12,7 @@ enum planck_layers {
 };
 
 enum planck_keycodes {
-  QWERTY = SAFE_RANGE
+  QWERTY = SAFE_RANGE 
 };
 
 #define LOWER MO(_LOWER)
@@ -54,6 +55,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     FUNCTION, KC_LCTL, KC_LALT, KC_LGUI, LOWER, KC_SPC, KC_BSPC, RAISE, KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT  \
   ),
 
+  [_MOUSE] = LAYOUT_planck_grid(
+    _______, KC_WH_U, KC_MS_U, KC_WH_D, _______, _______, _______, _______, _______, _______, _______, _______, \
+    _______, KC_MS_L, KC_MS_D, KC_MS_R, _______, _______, _______, KC_ACL0, KC_ACL1, KC_ACL2, _______, _______, \
+    _______, _______, _______, _______, _______, _______, _______, _______, KC_BTN1, KC_BTN2, KC_BTN3, _______, \
+    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
+  ),
+
   [_LOWER] = LAYOUT_planck_grid(
     KC_TILD, KC_1   , KC_2   , KC_3   , KC_4   , KC_5   , KC_6   , KC_7   , KC_8,  KC_9  , KC_0   , KC_EQL   , \
     KC_SPLT, KC_CAPP, KC_RCPP, KC_SSL , KC_SSR , KC_LBRC, KC_RBRC, KC_4   , KC_5,  KC_6  , KC_PLUS, KC_BSLS  , \
@@ -78,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_ADJUST] = LAYOUT_planck_grid(
     _______, QWERTY , _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
     _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-    _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
+    _______, _______, _______, _______, _______, _______, _______,  MOUSE , _______, _______, _______, _______, \
     RESET  , _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______  \
   )
 
@@ -115,6 +123,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case QWERTY:
       if (record->event.pressed) {
         set_single_persistent_default_layer(_QWERTY);
+      }
+      return false;
+      break;
+    case MOUSE:
+      if (record->event.pressed) {
+        set_single_persistent_default_layer(_MOUSE);
       }
       return false;
       break;
